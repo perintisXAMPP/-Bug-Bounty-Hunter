@@ -62,7 +62,7 @@ def main_menu():
             print_header("TENTANG PROGRAM")
             print("Program ini dirancang untuk membantu pemula")
             print("menguasai dasar Python sambil melatih kecepatan mengetik.")
-            print("Dibuat dengan cinta oleh Manus.")
+            print("Dibuat dengan cinta oleh Aghiell@303.")
             input(f"\n{Colors.WARNING}Tekan ENTER untuk kembali...{Colors.ENDC}")
         elif choice == '9':
             print(f"\n{Colors.GREEN}Terima kasih telah belajar! Sampai jumpa.{Colors.ENDC}")
