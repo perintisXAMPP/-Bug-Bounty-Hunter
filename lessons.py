@@ -4,7 +4,7 @@ PYTHON_LESSONS = [
         "content": """
 Di Python, variabel digunakan untuk menyimpan data.
 Contoh:
-nama = "Adjie"  # String
+nama = "Manus"  # String
 umur = 25       # Integer
 pi = 3.14       # Float
 
@@ -119,6 +119,44 @@ sehingga browser tidak mengeksekusinya sebagai kode.
             "options": ["A. SQL Query", "B. JavaScript", "C. Python Script"],
             "answer": "B"
         }
+    },
+    {
+        "title": "Recon: Subdomain Enumeration",
+        "content": """
+Pengintaian dimulai dengan mencari subdomain. Banyak bug ditemukan di subdomain
+yang terlupakan oleh developer (seperti dev atau staging).
+
+Python dapat melakukan ini dengan mencoba melakukan DNS lookup pada daftar kata.
+Contoh:
+import socket
+subdomains = ['www', 'dev', 'api', 'mail']
+for sub in subdomains:
+    try:
+        ip = socket.gethostbyname(f"{sub}.target.com")
+        print(f"Ditemukan: {sub}.target.com -> {ip}")
+    except:
+        pass
+        """,
+        "quiz": {
+            "question": "Mengapa mencari subdomain itu penting?",
+            "options": ["A. Untuk mempercepat internet", "B. Menemukan aset yang kurang terjaga", "C. Untuk mengganti nama domain"],
+            "answer": "B"
+        }
+    },
+    {
+        "title": "Recon: Directory Busting",
+        "content": """
+Directory busting adalah teknik mencari folder tersembunyi di web server.
+Target utama: /.env, /admin, /config, /backup.
+
+Gunakan library 'requests' untuk mengecek status code HTTP.
+Status 200 berarti folder ada, 404 berarti tidak ada, 403 berarti dilarang.
+        """,
+        "quiz": {
+            "question": "HTTP Status Code mana yang menunjukkan folder ditemukan?",
+            "options": ["A. 404", "B. 200", "C. 500"],
+            "answer": "B"
+        }
     }
 ]
 
@@ -136,5 +174,9 @@ TYPING_TEXTS = [
     "cursor.execute('SELECT * FROM users WHERE id = %s', (user_id,))",
     "sanitized = html.escape(user_input)",
     "if session.get('user_id') != target_id: raise AccessDenied()",
-    "payload = \"' OR 1=1 --\"; r = requests.post(url, data={'user': payload})"
+    "payload = \"' OR 1=1 --\"; r = requests.post(url, data={'user': payload})",
+    "ip = socket.gethostbyname(f'{sub}.{domain}')",
+    "r = requests.get(f'{url}/{path}', timeout=5)",
+    "headers = requests.head(url).headers; print(headers.get('Server'))",
+    "whois_data = socket.create_connection(('whois.verisign-grs.com', 43))"
 ]

@@ -4,6 +4,7 @@ from typing_engine import run_typing_test, run_time_attack
 from progress_tracker import update_lesson_status, display_progress
 from cyber_tools import cyber_menu
 from bug_bounty_lab import bug_bounty_menu
+from recon_lab import recon_menu
 
 def show_lesson(lesson):
     clear_screen()
@@ -32,13 +33,14 @@ def main_menu():
         print("1. Belajar Dasar Python (Materi & Kuis)")
         print("2. Latihan Mengetik (Sintaks Python)")
         print("3. Mode Time Attack (Tantangan 30 Detik)")
-        print("4. Cyber Security Lab (Simulasi)")
-        print("5. Bug Bounty Hunter Lab (Eksploitasi & Mitigasi)")
-        print("6. Lihat Progres Belajar")
-        print("7. Tentang Program")
-        print("8. Keluar")
+        print("4. Reconnaissance & Footprinting Lab (Pengintaian)")
+        print("5. Cyber Security Lab (Simulasi)")
+        print("6. Bug Bounty Hunter Lab (Eksploitasi & Mitigasi)")
+        print("7. Lihat Progres Belajar")
+        print("8. Tentang Program")
+        print("9. Keluar")
         
-        choice = get_input("\nPilihan Anda (1-8): ")
+        choice = get_input("\nPilihan Anda (1-9): ")
         
         if choice == '1':
             for lesson in PYTHON_LESSONS:
@@ -48,19 +50,21 @@ def main_menu():
         elif choice == '3':
             run_time_attack()
         elif choice == '4':
-            cyber_menu()
+            recon_menu()
         elif choice == '5':
-            bug_bounty_menu()
+            cyber_menu()
         elif choice == '6':
-            display_progress()
+            bug_bounty_menu()
         elif choice == '7':
+            display_progress()
+        elif choice == '8':
             clear_screen()
             print_header("TENTANG PROGRAM")
             print("Program ini dirancang untuk membantu pemula")
             print("menguasai dasar Python sambil melatih kecepatan mengetik.")
             print("Dibuat dengan cinta oleh Manus.")
             input(f"\n{Colors.WARNING}Tekan ENTER untuk kembali...{Colors.ENDC}")
-        elif choice == '8':
+        elif choice == '9':
             print(f"\n{Colors.GREEN}Terima kasih telah belajar! Sampai jumpa.{Colors.ENDC}")
             break
         else:
