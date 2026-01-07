@@ -70,7 +70,7 @@ BUG BOUNTY REPORT
 TITLE    : {title}
 SEVERITY : {severity}
 STATUS   : Triaged
-REPORTER : 303 Hunter
+REPORTER : Manus Hunter
 
 STEPS TO REPRODUCE:
 {steps}

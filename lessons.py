@@ -157,6 +157,92 @@ Status 200 berarti folder ada, 404 berarti tidak ada, 403 berarti dilarang.
             "options": ["A. 404", "B. 200", "C. 500"],
             "answer": "B"
         }
+    },
+    {
+        "title": "Vulnerability Analysis: CVSS Scoring",
+        "content": """
+CVSS (Common Vulnerability Scoring System) digunakan untuk menilai tingkat bahaya bug.
+Skala:
+- 0.1 - 3.9: Low
+- 4.0 - 6.9: Medium
+- 7.0 - 8.9: High
+- 9.0 - 10.0: Critical
+
+Bug Bounty Hunter fokus pada bug High dan Critical untuk mendapatkan bounty besar.
+        """,
+        "quiz": {
+            "question": "Berapa skor minimal untuk kategori kerentanan 'Critical'?",
+            "options": ["A. 7.0", "B. 8.0", "C. 9.0"],
+            "answer": "C"
+        }
+    },
+    {
+        "title": "Vulnerability Scanning: CVE Lookup",
+        "content": """
+CVE (Common Vulnerabilities and Exposures) adalah ID unik untuk setiap bug yang ditemukan.
+Contoh: CVE-2021-44228 (Log4Shell).
+
+Python dapat digunakan untuk mencari informasi CVE melalui API publik.
+Mencocokkan versi software dengan daftar CVE adalah inti dari Vulnerability Scanning.
+        """,
+        "quiz": {
+            "question": "Apa kepanjangan dari CVE?",
+            "options": ["A. Common Vulnerabilities and Exposures", "B. Cyber Virus Entry", "C. Central Vulnerability Engine"],
+            "answer": "A"
+        }
+    },
+    {
+        "title": "Advanced: Malware Analysis with Python",
+        "content": """
+Python sering digunakan untuk menganalisis file mencurigakan.
+Teknik dasar: Mencocokkan hash file dengan database malware (seperti VirusTotal).
+
+Contoh Kode Deteksi Sederhana:
+import hashlib
+def get_hash(file):
+    return hashlib.md5(open(file, 'rb').read()).hexdigest()
+
+Jika hash cocok dengan daftar hitam, file tersebut dianggap berbahaya.
+        """,
+        "quiz": {
+            "question": "Metode apa yang digunakan untuk identifikasi malware berbasis signature?",
+            "options": ["A. Hashing", "B. Kompresi", "C. Enkripsi"],
+            "answer": "A"
+        }
+    },
+    {
+        "title": "Advanced: Network Manipulation (Scapy)",
+        "content": """
+Scapy adalah library Python yang sangat kuat untuk manipulasi paket jaringan.
+Anda bisa membuat, mengirim, dan mengendus paket kustom.
+
+Contoh Membuat Paket ICMP (Ping):
+from scapy.all import IP, ICMP, send
+packet = IP(dst="8.8.8.8")/ICMP()
+send(packet)
+
+Ini digunakan untuk audit jaringan tingkat lanjut dan pengujian firewall.
+        """,
+        "quiz": {
+            "question": "Library Python apa yang populer untuk manipulasi paket jaringan?",
+            "options": ["A. Requests", "B. Scapy", "C. BeautifulSoup"],
+            "answer": "B"
+        }
+    },
+    {
+        "title": "Case Study: Brute Force Detection",
+        "content": """
+Studi Kasus: Mendeteksi serangan Brute Force dari log server.
+Log: '2023-10-01 10:00:01 - Failed login from 192.168.1.50'
+
+Analisis: Jika satu IP gagal login > 5 kali dalam 1 menit, tandai sebagai serangan.
+Python dapat memproses ribuan baris log dalam hitungan detik menggunakan library 'pandas'.
+        """,
+        "quiz": {
+            "question": "Apa indikator utama serangan Brute Force dalam log?",
+            "options": ["A. Login berhasil", "B. Banyak kegagalan login dari satu IP", "C. Server restart"],
+            "answer": "B"
+        }
     }
 ]
 
@@ -178,5 +264,13 @@ TYPING_TEXTS = [
     "ip = socket.gethostbyname(f'{sub}.{domain}')",
     "r = requests.get(f'{url}/{path}', timeout=5)",
     "headers = requests.head(url).headers; print(headers.get('Server'))",
-    "whois_data = socket.create_connection(('whois.verisign-grs.com', 43))"
+    "whois_data = socket.create_connection(('whois.verisign-grs.com', 43))",
+    "cvss_score = 9.8; severity = 'CRITICAL' if cvss_score >= 9.0 else 'HIGH'",
+    "cve_id = 'CVE-2021-44228'; r = requests.get(f'https://cve.mitre.org/cgi-bin/cvename.cgi?name={cve_id}')",
+    "if version < '2.4.49': print('Vulnerable to Path Traversal!')",
+    "vulnerabilities = [v for v in db if v['software'] == target_software]",
+    "pkt = IP(dst='192.168.1.1')/TCP(dport=80, flags='S')",
+    "malware_hash = hashlib.sha256(file_content).hexdigest()",
+    "df = pd.read_csv('access.log'); brute_ips = df[df['status'] == 401]",
+    "payload = b'A' * 64 + struct.pack('<I', 0xdeadbeef)"
 ]
