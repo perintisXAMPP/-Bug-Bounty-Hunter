@@ -105,7 +105,7 @@ STEPS TO REPRODUCE:
 MITIGASI:
 - Implementasi input validation
 - Gunakan security headers
-====================================
+
 
 # Kurikulum Reconnaissance & Footprinting
 
