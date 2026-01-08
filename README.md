@@ -202,7 +202,7 @@ Alur kerja terintegrasi yang mensimulasikan proses nyata:
 - **Studi Kasus**: Mendeteksi pola serangan Brute Force dari log akses web.
 
 
-Agar program ini dapat digunakan secara profesional, Anda bisa mengikuti langkah-langkah berikut:
+program:
 
 ## 1. Menjadikan File Executable (.exe atau .app)
 Anda bisa menggunakan library `PyInstaller` untuk membungkus semua file Python menjadi satu file executable yang bisa dijalankan tanpa perlu menginstal Python.
